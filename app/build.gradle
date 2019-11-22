@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'taoyunjuan'
             keyPassword 'tao123456'
-            storeFile file('E:/814/Bearbears/app/taoyunjuan.jks')
+            storeFile file('taoyunjuan.jks')
             storePassword 'tao123456'
         }
     }
@@ -35,12 +35,15 @@ android {
         release {
             minifyEnabled false
             multiDexEnabled true
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "id", "webviewload_monitor_cancel_point",""
         }
         debug {
             minifyEnabled false
             multiDexEnabled true
             signingConfig signingConfigs.config
+            resValue "id", "webviewload_monitor_cancel_point",""
         }
     }
     packagingOptions {
@@ -144,7 +147,10 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
 
     //轮播组件
-    compile 'com.github.Rowandjj:VerticalBannerView:1.0'
+//    compile 'com.github.Rowandjj:VerticalBannerView:1.0'
+//    implementation 'com.github.yodanote:verticalbannerview:1.0'
+    implementation project(path: ':library')
+
 
     //Adapter基类
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
@@ -153,7 +159,7 @@ dependencies {
     compile 'com.ycjiang:VideoPlayModule:2.3.0'
     //https://github.com/yangchaojiang/yjPlay
     //数据库
-    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'org.greenrobot:greendao:3.2.2'
 //https://github.com/greenrobot/greenDAO
     //热搜
     compile 'com.nex3z:flow-layout:1.2.4'
