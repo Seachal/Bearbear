@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.android.tu.loadingdialog.LoadingDailog;
 import com.lingjuan.app.utils.ToastManage;
@@ -17,6 +18,8 @@ import butterknife.ButterKnife;
  * Created by TaoHui on 2018/10/5.
  */
 public abstract class BaseActivity extends AppCompatActivity {
+
+
     private LoadingDailog.Builder loadBuilder;
     private LoadingDailog loadingDailog;
     @Override
@@ -31,6 +34,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .setMessage("加载中...")
                 .setCancelOutside(true);
         loadingDailog=loadBuilder.create();
+        Log.d("BaseActivity", getClass().getSimpleName());
     }
 
     /**

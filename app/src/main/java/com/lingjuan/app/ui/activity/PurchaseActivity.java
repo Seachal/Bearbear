@@ -6,7 +6,6 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.View;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
@@ -39,6 +38,7 @@ import com.lingjuan.app.utils.purchase.PurchaseUtils;
 import com.lingjuan.app.wigth.CouponDisplayView;
 import com.lingjuan.app.wigth.GradationScrollView;
 import com.lingjuan.app.wigth.ScrollViewContainer;
+import com.orhanobut.logger.Logger;
 import com.youth.banner.Banner;
 
 import java.text.DecimalFormat;
@@ -278,10 +278,11 @@ public class PurchaseActivity extends BaseActivity implements GradationScrollVie
         showLoading();
         switch (view.getId()) {
             case R.id.tv_good_detail_shop_cart:
+               Logger.i("showDetail:",purchaseRzy.getItemid());
                 AlibcTradeSDKUtils.showDetail(purchaseRzy.getItemid(), this);
                 break;
             case R.id.tv_good_detail_buy:
-
+                Logger.i("showDetail:",purchaseRzy.getCouponurl());
                 AlibcTradeSDKUtils.showUrl(purchaseRzy.getCouponurl(), this);
                 break;
             case R.id.tv_customerservice:
